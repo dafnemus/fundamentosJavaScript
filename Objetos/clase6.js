@@ -11,8 +11,8 @@ var dario = {
 }
 
 // destructuring
-function imprimirNombreEnMayuscula({ nombre }) {
-    console.log(nombre.toUpperCase())
+function imprimirNombreEnMayuscula(persona) {
+    console.log(persona.nombre.toUpperCase())
 }
 
 imprimirNombreEnMayuscula(dafne)
