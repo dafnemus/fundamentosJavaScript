@@ -30,7 +30,7 @@ function imprimirProfesiones(persona) {
 
 imprimirProfesiones(dafne)
 
-function EsMayorDeEdad({ nombre, edad }) {
+function esMayorDeEdad({ nombre, edad }) {
     if (edad >= 18) {
         console.log(`${nombre} es mayor de edad.`)
     } else {
@@ -39,4 +39,4 @@ function EsMayorDeEdad({ nombre, edad }) {
     
 }
 
-EsMayorDeEdad(dafne)
+esMayorDeEdad(dafne)
