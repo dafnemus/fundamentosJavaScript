@@ -33,9 +33,9 @@ Desarrollador.prototype.saludar = function () {
   console.log(`Hola! me llamo ${this.nombre} y soy desarrolladore.`);
 };
 
-var dafne = new Persona("Dafne", "Musante");
+var dafne = new Persona('Dafne', 'Musante');
 dafne.saludar();
 dafne.calcularAltura();
 
-var desarrolladora = new Desarrollador("Dafne", "Musante");
+var desarrolladora = new Desarrollador('Dafne', 'Musante');
 desarrolladora.saludar();
