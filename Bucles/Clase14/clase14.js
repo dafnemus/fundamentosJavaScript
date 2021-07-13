@@ -1,10 +1,10 @@
 let dafne = {
-  nombre: "Dafne",
+  nombre: 'Dafne',
   peso: 49,
 };
 
 let pepe = {
-  nombre: "Pepe",
+  nombre: 'Pepe',
   peso: 60,
 };
 
@@ -44,7 +44,9 @@ const llegarMetaPeso = (persona) => {
 
 const imprimirPesoFinal = ({ nombre, peso }) => {
   console.log(
-    `A ${nombre} le llevo ${dias} días para llegar a la meta. Ahora pesa: ${peso.toFixed(2)}`
+    `A ${nombre} le llevo ${dias} días para llegar a la meta. Ahora pesa: ${peso.toFixed(
+      2
+    )}`
   );
 };
 

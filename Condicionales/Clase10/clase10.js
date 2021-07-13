@@ -1,6 +1,6 @@
 var dafne = {
-  nombre: "Dafne",
-  apellido: "Musante",
+  nombre: 'Dafne',
+  apellido: 'Musante',
   edad: 23,
   ingeniere: false,
   cocinere: true,
@@ -11,19 +11,19 @@ var dafne = {
 function imprimirProfesiones(persona) {
   console.log(`${persona.nombre} es: `);
   if (persona.ingeniere) {
-    console.log("Ingeniere");
+    console.log('Ingeniere');
   }
 
   if (persona.cocinere) {
-    console.log("Cocinere");
+    console.log('Cocinere');
   }
 
   if (persona.cantante) {
-    console.log("Cantante");
+    console.log('Cantante');
   }
 
   if (persona.estudiante) {
-    console.log("Estudiante");
+    console.log('Estudiante');
   }
 }
 

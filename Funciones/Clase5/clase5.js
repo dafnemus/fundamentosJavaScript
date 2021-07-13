@@ -1,4 +1,4 @@
-var nombre1 = "Dafne";
+var nombre1 = 'Dafne';
 
 function imprimirNombreEnMayuscula(nombre) {
   nombre = nombre.toUpperCase();

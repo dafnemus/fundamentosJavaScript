@@ -1,5 +1,5 @@
 var x = 4,
-  y = "4";
+  y = '4';
 
 // comparación 1 ==
 console.log(`${x} == ${y}: ${x == y}`);
@@ -9,11 +9,11 @@ console.log(`${x} === ${y}: ${x === y}`);
 
 // comparación objetos
 var dafne = {
-  nombre: "Dafne",
+  nombre: 'Dafne',
 };
 
 var otraPersona = {
-  nombre: "Dafne",
+  nombre: 'Dafne',
 };
 
 // false

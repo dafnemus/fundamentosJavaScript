@@ -1,10 +1,10 @@
 let dafne = {
-  nombre: "Dafne",
+  nombre: 'Dafne',
   peso: 49,
 };
 
 let pepe = {
-  nombre: "Pepe",
+  nombre: 'Pepe',
   peso: 60,
 };
 

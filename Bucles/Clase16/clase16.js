@@ -58,6 +58,6 @@ switch (signo.toLowerCase()) {
     break;
 
   default:
-      console.log(`No se encontro el signo ingresado ${signo}`)
+    console.log(`No se encontro el signo ingresado ${signo}`);
     break;
 }

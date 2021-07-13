@@ -1,8 +1,8 @@
 // STRINGS o CADENAS
 
-var nombre = "Dafne";
+var nombre = 'Dafne';
 
-var apellido = "Musante";
+var apellido = 'Musante';
 
 // Torna en mayúsculas al string
 var nomMayus = nombre.toUpperCase();
@@ -21,7 +21,7 @@ var ultimoCaracterIndice = apellido[apellido.length - 1];
 var extensionNobre = nombre.length;
 
 // concatenar
-var nombreCompleto = nombre + " " + apellido;
+var nombreCompleto = nombre + ' ' + apellido;
 
 // interpolacion o template string
 var templateNombreCompleto = `${nombre} ${apellido}`;

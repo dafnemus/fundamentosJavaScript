@@ -1,4 +1,4 @@
-var nombre = "Dafne",
+var nombre = 'Dafne',
   edad = 23;
 
 function imprimirEdad(nombre, edad) {
