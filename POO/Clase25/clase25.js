@@ -4,8 +4,12 @@ class Persona {
     this.apellido = apellido;
   }
 
-  saludar() {
-    console.log(`Hola! me llamo ${this.nombre} ${this.apellido}`);
+  saludar(fn) {
+    var { nombre, apellido } = this;
+    console.log(`Hola! me llamo ${nombre} ${apellido}`);
+    if (fn) {
+      fn(nombre, apellido);
+    }
   }
 
   esAlto() {
@@ -24,13 +28,17 @@ class Desarrollador extends Persona {
     super(nombre, apellido, altura);
   }
 
-  saludar() {
-    console.log(`Hola! me llamo ${this.nombre} y soy desarrolladore.`);
+  saludar(fn) {
+    var { nombre, apellido } = this;
+    console.log(`Hola! me llamo ${nombre} y soy desarrolladore.`);
+    if (fn) {
+      fn(nombre, apellido, true);
+    }
   }
 }
 
 function responder(nombre, apellido, esDev) {
-  console.log(`Hola ${nombre} ${apellido}`);
+  console.log(`Buenas ${nombre} ${apellido}`);
   if (esDev) {
     console.log('Ah, no sabía. Que bueno eso');
   }
@@ -38,7 +46,7 @@ function responder(nombre, apellido, esDev) {
 
 var dafne = new Persona('Dafne', 'Musante');
 dafne.saludar();
-dafne.calcularAltura();
+dafne.saludar(responder);
 
-var desarrolladora = new Desarrollador('Dafne', 'Musante', 1.5);
-desarrolladora.saludar();
+var marta = new Desarrollador('Marta', 'Peréz', 1.5);
+marta.saludar(responder);
