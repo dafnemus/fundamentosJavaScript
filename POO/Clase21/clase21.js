@@ -17,3 +17,5 @@ Persona.prototype.calcularAltura = function () {
 };
 
 var dafne = new Persona("Dafne", "Musante", 1.53);
+dafne.saludar()
+dafne.calcularAltura()
