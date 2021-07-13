@@ -36,9 +36,9 @@ var paula = {
 
 var personas = [sacha, alan, martin, dario, vicky, paula];
 
-const convertirACms = (persona) => ({
-  ...persona,
-  altura: persona.altura * 100
+const convertirACms = (objeto) => ({
+  ...objeto,
+  altura: objeto.altura * 100
 });
 
 var alturaPersonasEnCms = personas.map(convertirACms);
