@@ -16,6 +16,6 @@ Persona.prototype.calcularAltura = function () {
     : console.log(`${this.nombre} no es una persona alta.`);
 };
 
-var dafne = new Persona("Dafne", "Musante", 1.53);
+var dafne = new Persona('Dafne', 'Musante', 1.53);
 dafne.saludar()
 dafne.calcularAltura()
