@@ -29,9 +29,9 @@ class Desarrollador extends Persona {
   }
 }
 
-var dafne = new Persona("Dafne", "Musante");
+var dafne = new Persona('Dafne', 'Musante', 1.5);
 dafne.saludar();
 dafne.calcularAltura();
 
-var desarrolladora = new Desarrollador("Dafne", "Musante", 1.5);
+var desarrolladora = new Desarrollador('Dafne', 'Musante', 1.5);
 desarrolladora.saludar();
