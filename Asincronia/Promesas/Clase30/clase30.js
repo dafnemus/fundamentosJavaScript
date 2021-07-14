@@ -5,7 +5,7 @@ const opts = { crossDomain: true };
 
 const onPokemonNameResponse = ({ name }) => console.log(`Hola yo soy ${name}`);
 
-const ErrorNombrePokemon = nombre =>
+const ErrorNombrePokemon = (nombre) =>
   console.log(`No se pudo obtener el pokemon ${nombre}`);
 
 function obtenerPokemon(nombre) {
@@ -17,12 +17,16 @@ function obtenerPokemon(nombre) {
 
 var pokemones = ['bulbasaur', 'pikachu', 'ditto', 'charizard', 'squirtle'];
 
-var promesas = pokemones.map(pokemon => obtenerPokemon(pokemon));
+var promesas = pokemones.map((pokemon) => obtenerPokemon(pokemon));
 
-Promise.all(promesas)
-  .then(pokemones => {
-    for (var i = 0; i < pokemones.length; i++) {
-      onPokemonNameResponse(pokemones[i]);
-    }
-  })
-  .catch(ErrorNombrePokemon);
+function obtenerSaludoPokemones() {
+  Promise.all(promesas)
+    .then((pokemones) => {
+      for (var i = 0; i < pokemones.length; i++) {
+        onPokemonNameResponse(pokemones[i]);
+      }
+    })
+    .catch(ErrorNombrePokemon);
+}
+
+obtenerSaludoPokemones()
