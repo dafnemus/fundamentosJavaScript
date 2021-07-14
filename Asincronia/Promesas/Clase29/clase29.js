@@ -5,7 +5,7 @@ const opts = { crossDomain: true };
 
 const onPokemonNameResponse = ({ name }) => console.log(`Hola yo soy ${name}`);
 
-const ErrorNombrePokemon = (nombre) =>
+const ErrorNombrePokemon = nombre =>
   console.log(`No se pudo obtener el pokemon ${nombre}`);
 
 function obtenerPokemon(nombre) {
@@ -16,5 +16,13 @@ function obtenerPokemon(nombre) {
 }
 
 obtenerPokemon('bulbasaur')
+  .then(pokemon => {
+    onPokemonNameResponse(pokemon);
+    return obtenerPokemon('pikachu');
+  })
+  .then(pokemon => {
+    onPokemonNameResponse(pokemon);
+    return obtenerPokemon('charizard');
+  })
   .then(onPokemonNameResponse)
   .catch(ErrorNombrePokemon);
