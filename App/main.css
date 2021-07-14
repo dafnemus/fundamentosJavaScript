@@ -69,3 +69,7 @@ header p {
     box-shadow: 5px 5px 15px  var(--white);
     cursor: pointer;
 }
+
+.ocultar {
+    display: none;
+}
