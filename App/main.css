@@ -24,7 +24,7 @@ header h1 {
   font-size: 5rem;
   font-weight: 400;
   margin-top: 30px;
-  background: repeating-linear-gradient(to right, var(--verde) 25%,var(--red), var(--amarillo), var(--blue));
+  background: repeating-linear-gradient(to right, var(--verde) 68%,var(--red), var(--amarillo), var(--blue));
 
   /* clip informático */
   -webkit-background-clip: text;

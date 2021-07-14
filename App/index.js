@@ -14,7 +14,8 @@ class Juego {
 
   iniciarJuego() {
     btnIniciar.classList.add('ocultar');
-    this.nivel = 1;
+    this.elegirColor.bind(this);
+    this.nivel = 7;
     this.colores = {
       verde,
       rojo,
@@ -31,6 +32,7 @@ class Juego {
 
   pasarDeNivel() {
     this.iluminarSecuencia();
+    this.agregarClickColors();
   }
 
   convertirNumEnCol(numero) {
@@ -48,7 +50,7 @@ class Juego {
 
   iluminarSecuencia() {
     for (let i = 0; i < this.nivel; i++) {
-      let color = this.convertirNumEnCol(this.secuencia[i]);
+      const color = this.convertirNumEnCol(this.secuencia[i]);
       setTimeout(() => {
         this.iluminarColor(color);
       }, 1000 * i);
@@ -65,8 +67,19 @@ class Juego {
   apagar(color) {
     this.colores[color].classList.remove('light');
   }
+
+  agregarClickColors() {
+    this.colores.verde.addEventListener('click', this.elegirColor);
+    this.colores.rojo.addEventListener('click', this.elegirColor);
+    this.colores.amarillo.addEventListener('click', this.elegirColor);
+    this.colores.azul.addEventListener('click', this.elegirColor);
+  }
+
+  elegirColor(ev) {
+    console.log(this);
+  }
 }
 
 function empezarJuego() {
-  var juego = new Juego();
+  window.juego = new Juego();
 }
