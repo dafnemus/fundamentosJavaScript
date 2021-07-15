@@ -5,17 +5,20 @@ const azul = document.getElementById('azul');
 
 const btnIniciar = document.getElementById('btnIniciar');
 
+const ULTIMO_NIVEL = 10;
 class Juego {
   constructor() {
+    this.iniciarJuego = this.iniciarJuego.bind(this);
     this.iniciarJuego();
     this.generarSecuencia();
-    this.pasarDeNivel();
+    setTimeout(this.pasarDeNivel, 500);
   }
 
   iniciarJuego() {
-    btnIniciar.classList.add('ocultar');
-    this.elegirColor.bind(this);
-    this.nivel = 7;
+    this.elegirColor = this.elegirColor.bind(this);
+    this.pasarDeNivel = this.pasarDeNivel.bind(this);
+    this.toggleBtnIniciar();
+    this.nivel = 1;
     this.colores = {
       verde,
       rojo,
@@ -24,13 +27,20 @@ class Juego {
     };
   }
 
+  toggleBtnIniciar() {
+    btnIniciar.classList.contains('ocultar')
+      ? btnIniciar.classList.remove('ocultar')
+      : btnIniciar.classList.add('ocultar');
+  }
+
   generarSecuencia() {
-    this.secuencia = new Array(10)
+    this.secuencia = new Array(ULTIMO_NIVEL)
       .fill(0)
       .map(() => Math.floor(Math.random() * 4));
   }
 
   pasarDeNivel() {
+    this.subNivel = 0;
     this.iluminarSecuencia();
     this.agregarClickColors();
   }
@@ -45,6 +55,19 @@ class Juego {
         return 'amarillo';
       case 3:
         return 'azul';
+    }
+  }
+
+  convertirColEnNum(color) {
+    switch (color) {
+      case 'verde':
+        return 0;
+      case 'rojo':
+        return 1;
+      case 'amarillo':
+        return 2;
+      case 'azul':
+        return 3;
     }
   }
 
@@ -75,8 +98,42 @@ class Juego {
     this.colores.azul.addEventListener('click', this.elegirColor);
   }
 
+  eliminarClicks() {
+    this.colores.verde.removeEventListener('click', this.elegirColor);
+    this.colores.rojo.removeEventListener('click', this.elegirColor);
+    this.colores.amarillo.removeEventListener('click', this.elegirColor);
+    this.colores.azul.removeEventListener('click', this.elegirColor);
+  }
+
   elegirColor(ev) {
-    console.log(this);
+    const nombreColor = ev.target.dataset.color;
+    const numeroColor = this.convertirColEnNum(nombreColor);
+    this.iluminarColor(nombreColor);
+    if (numeroColor === this.secuencia[this.subNivel]) {
+      this.subNivel++;
+      if (this.subNivel === this.nivel) {
+        this.nivel++;
+        this.eliminarClicks();
+        if (this.nivel === ULTIMO_NIVEL + 1) {
+          this.ganoElJuego();
+        } else {
+          setTimeout(this.pasarDeNivel, 2000);
+        }
+      }
+    } else {
+      this.perdioElJuego();
+    }
+  }
+
+  ganoElJuego() {
+    swal('Ganaste', 'Felicidades', 'success').then(this.iniciarJuego);
+  }
+
+  perdioElJuego() {
+    swal('Perdiste', 'Jugar de nuevo?', 'error').then(() => {
+      this.iniciarJuego();
+      this.eliminarClicks();
+    });
   }
 }
 
