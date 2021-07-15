@@ -11,7 +11,7 @@ class Juego {
     this.iniciarJuego = this.iniciarJuego.bind(this);
     this.iniciarJuego();
     this.generarSecuencia();
-    setTimeout(this.pasarDeNivel, 500);
+    setTimeout(this.pasarDeNivel, 700);
   }
 
   iniciarJuego() {
@@ -84,7 +84,7 @@ class Juego {
     this.colores[color].classList.add('light');
     setTimeout(() => {
       this.apagar(color);
-    }, 350);
+    }, 450);
   }
 
   apagar(color) {
