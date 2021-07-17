@@ -41,6 +41,7 @@ header p {
   font-size: 1.8rem;
   font-weight: 900;
 }
+
 .contain-game {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -50,6 +51,7 @@ header p {
   width: 400px;
   height: 400px;
 }
+
 .rojo,
 .verde,
 .azul,
@@ -105,6 +107,7 @@ header p {
   background-color: var(--black) !important;
   width: 300px !important;
 }
+
 .swal-text,
 .swal-title {
   color: white !important;
