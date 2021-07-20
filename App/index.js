@@ -2,25 +2,25 @@ const verde = document.getElementById('verde');
 const rojo = document.getElementById('rojo');
 const amarillo = document.getElementById('amarillo');
 const azul = document.getElementById('azul');
-
 const btnIniciar = document.getElementById('botonIniciar');
 const NIVEL_INICIAL = 1;
-const ULTIMO_NIVEL = 10;
+const CANTIDAD_NIVELES = 10;
 const TIEMPO_PASAR_DE_NIVEL = 2000;
 const TIEMPO_INICIAR_SIGUIENTE_NIVEL = 700;
 const TIEMPO_ILUMINACION_SECUENCIA = 1000;
 const TIEMPO_ILUMINAR_COLOR = 450;
+
 class Juego {
   constructor() {
     this.iniciarJuego = this.iniciarJuego.bind(this);
+    this.elegirColor = this.elegirColor.bind(this);
+    this.pasarDeNivel = this.pasarDeNivel.bind(this);
     this.iniciarJuego();
     this.generarSecuencia();
     setTimeout(this.pasarDeNivel, TIEMPO_INICIAR_SIGUIENTE_NIVEL);
   }
 
   iniciarJuego() {
-    this.elegirColor = this.elegirColor.bind(this);
-    this.pasarDeNivel = this.pasarDeNivel.bind(this);
     this.toggleBtnIniciar();
     this.nivel = NIVEL_INICIAL;
     this.colores = {
@@ -38,7 +38,7 @@ class Juego {
   }
 
   generarSecuencia() {
-    this.secuencia = new Array(ULTIMO_NIVEL)
+    this.secuencia = new Array(CANTIDAD_NIVELES)
       .fill(0)
       .map(() => Math.floor(Math.random() * 4));
   }
@@ -96,17 +96,15 @@ class Juego {
   }
 
   agregarClickColors() {
-    this.colores.verde.addEventListener('click', this.elegirColor);
-    this.colores.rojo.addEventListener('click', this.elegirColor);
-    this.colores.amarillo.addEventListener('click', this.elegirColor);
-    this.colores.azul.addEventListener('click', this.elegirColor);
+    Object.values(this.colores).forEach((item) =>
+      item.addEventListener('click', this.elegirColor)
+    );
   }
 
   eliminarClicks() {
-    this.colores.verde.removeEventListener('click', this.elegirColor);
-    this.colores.rojo.removeEventListener('click', this.elegirColor);
-    this.colores.amarillo.removeEventListener('click', this.elegirColor);
-    this.colores.azul.removeEventListener('click', this.elegirColor);
+    Object.values(this.colores).forEach((item) =>
+      item.removeEventListener('click', this.elegirColor)
+    );
   }
 
   elegirColor(event) {
@@ -118,7 +116,7 @@ class Juego {
       if (this.subNivel === this.nivel) {
         this.nivel++;
         this.eliminarClicks();
-        if (this.nivel === ULTIMO_NIVEL + 1) {
+        if (this.nivel === CANTIDAD_NIVELES + 1) {
           this.ganoElJuego();
         } else {
           setTimeout(this.pasarDeNivel, TIEMPO_PASAR_DE_NIVEL);
@@ -130,11 +128,15 @@ class Juego {
   }
 
   ganoElJuego() {
-    swal('Ganaste', 'Felicidades', 'success').then(this.iniciarJuego);
+    swal('Ganaste', 'Felicidades', 'success', {
+      className: 'swal-modal',
+    }).then(this.iniciarJuego);
   }
 
   perdioElJuego() {
-    swal('Perdiste', 'Jugar de nuevo?', 'error').then(() => {
+    swal('Perdiste', 'Jugar de nuevo?', 'error', {
+      className: 'swal-modal',
+    }).then(() => {
       this.iniciarJuego();
       this.eliminarClicks();
     });
