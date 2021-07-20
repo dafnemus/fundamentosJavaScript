@@ -104,26 +104,26 @@ header p {
 }
 
 .swal-modal {
-  background-color: var(--black) !important;
-  width: 300px !important;
+  background-color: var(--black);
+  width: 300px;
 }
 
 .swal-text,
 .swal-title {
-  color: white !important;
-  font-size: 30px !important;
-  font-weight: bold !important;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .swal-button {
-  background: white !important;
-  color: black !important;
-  font-weight: bold !important;
-  font-size: 20px !important;
+  background: white;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .swal-icon--success:after,
 .swal-icon--success:before,
 .swal-icon--success__hide-corners {
-  background-color: transparent !important;
+  background-color: transparent;
 }
